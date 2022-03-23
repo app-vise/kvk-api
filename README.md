@@ -14,9 +14,10 @@ For more information head to:
 [Certificate information](https://developers.kvk.nl/nl/support/tls-certificate-chain-trust-instructions)
 
 ### Usage
+#### Zoeken API
 ```php
 use Appvise\KvkApi\Http\SearchQuery;
-use Appvise\KvkApi\Http\KvkClientFactory;
+use Appvise\KvkApi\KvkClientFactory;
 use Appvise\KvkApi\Exception\ApiException;
 use Appvise\KvkApi\Exception\NotFoundException;
 
@@ -33,6 +34,29 @@ try {
     foreach ($resultaten->getResultaten() as $searchResult) {
         // do something with $searchResult
     }
+} catch(NotFoundException | ApiException $exception) {
+    // handle error
+}
+```
+
+#### BasisProfiel API
+```php
+use Appvise\KvkApi\Http\ProfileQuery;
+use Appvise\KvkApi\KvkClientFactory;
+use Appvise\KvkApi\Exception\ApiException;
+use Appvise\KvkApi\Exception\NotFoundException;
+
+// for more information check:
+// https://developers.kvk.nl/nl/support/tls-certificate-chain-trust-instructions
+$rootCertificate = <location_of_root_certificate>;
+$client = KvkClientFactory::create(<YOUR_API_KEY>, 'test | production', $rootCertificate);
+
+$query = new ProfileQuery();
+$query->setKvkNumber('KVK nummer to fetch basis profile information for');
+
+try {
+    $basisProfile = $this->client->getBasisProfiel($query);
+    // do something with $basisProfile
 } catch(NotFoundException | ApiException $exception) {
     // handle error
 }
