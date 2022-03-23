@@ -6,7 +6,7 @@ namespace Appvise\KvkApi\Model;
 
 class AdresFactory extends AbstractFactory
 {
-    public static function fromResponse($response)
+    public static function fromResponse($response): Adres
     {
         return new Adres(
             self::pluckString('type', $response),

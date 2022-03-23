@@ -10,24 +10,24 @@ class SbiActiviteit
     private $sbiOmschrijving;
     private $indHoofdactiviteit;
 
-    public function __construct($sbiCode, $sbiOmschrijving, $indHoofdactiviteit)
+    public function __construct(?string $sbiCode, ?string $sbiOmschrijving, ?string $indHoofdactiviteit)
     {
         $this->sbiCode = $sbiCode;
         $this->sbiOmschrijving = $sbiOmschrijving;
         $this->indHoofdactiviteit = $indHoofdactiviteit;
     }
 
-    public function getSbiCode()
+    public function getSbiCode(): ?string
     {
         return $this->sbiCode;
     }
 
-    public function getSbiOmschrijving()
+    public function getSbiOmschrijving(): ?string
     {
         return $this->sbiOmschrijving;
     }
 
-    public function getIndHoofdactiviteit()
+    public function getIndHoofdactiviteit(): ?string
     {
         return $this->indHoofdactiviteit;
     }

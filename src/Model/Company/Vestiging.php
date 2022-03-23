@@ -64,57 +64,57 @@ class Vestiging
         $this->links = $links;
     }
 
-    public function getRsin()
+    public function getRsin(): ?string
     {
         return $this->rsin;
     }
 
-    public function getIndNonMailing()
+    public function getIndNonMailing(): ?string
     {
         return $this->indNonMailing;
     }
 
-    public function getFormeleRegistratiedatum()
+    public function getFormeleRegistratiedatum(): ?DateTime
     {
         return $this->formeleRegistratiedatum;
     }
 
-    public function getMaterieleRegistratie()
+    public function getMaterieleRegistratie(): ?MaterieleRegistratie
     {
         return $this->materieleRegistratie;
     }
 
-    public function getEersteHandelsnaam()
+    public function getEersteHandelsnaam(): ?string
     {
         return $this->eersteHandelsnaam;
     }
 
-    public function getIndHoofdvestiging()
+    public function getIndHoofdvestiging(): ?string
     {
         return $this->indHoofdvestiging;
     }
 
-    public function getIndCommercieleVestiging()
+    public function getIndCommercieleVestiging(): ?string
     {
         return $this->indCommercieleVestiging;
     }
 
-    public function getVoltijdWerkzamePersonen()
+    public function getVoltijdWerkzamePersonen(): ?int
     {
         return $this->voltijdWerkzamePersonen;
     }
 
-    public function getTotaalWerkzamePersonen()
+    public function getTotaalWerkzamePersonen(): ?int
     {
         return $this->totaalWerkzamePersonen;
     }
 
-    public function getDeeltijdWerkzamePersonen()
+    public function getDeeltijdWerkzamePersonen(): ?int
     {
         return $this->deeltijdWerkzamePersonen;
     }
 
-    public function getWebsites()
+    public function getWebsites(): ?array
     {
         return $this->websites;
     }

@@ -62,82 +62,82 @@ class Adres
         $this->geoData = $geoData;
     }
 
-    public function getIndAfgeschermd()
+    public function getIndAfgeschermd(): ?string
     {
         return $this->indAfgeschermd;
     }
 
-    public function getStraatnaam()
+    public function getStraatnaam(): ?string
     {
         return $this->straatnaam;
     }
 
-    public function getHuisnummer()
+    public function getHuisnummer(): ?int
     {
         return $this->huisnummer;
     }
 
-    public function getHuisnummerToevoeging()
+    public function getHuisnummerToevoeging(): ?string
     {
         return $this->huisnummerToevoeging;
     }
 
-    public function getHuisletter()
+    public function getHuisletter(): ?string
     {
         return $this->huisletter;
     }
 
-    public function getAanduidingBijHuisnummer()
+    public function getAanduidingBijHuisnummer(): ?string
     {
         return $this->aanduidingBijHuisnummer;
     }
 
-    public function getToevoegingAdres()
+    public function getToevoegingAdres(): ?string
     {
         return $this->toevoegingAdres;
     }
 
-    public function getPostcode()
+    public function getPostcode(): ?string
     {
         return $this->postcode;
     }
 
-    public function getPostbusnummer()
+    public function getPostbusnummer(): ?int
     {
         return $this->postbusnummer;
     }
 
-    public function getPlaats()
+    public function getPlaats(): ?string
     {
         return $this->plaats;
     }
 
-    public function getStraatHuisnummer()
+    public function getStraatHuisnummer(): ?string
     {
         return $this->straatHuisnummer;
     }
 
-    public function getPostcodeWoonplaats()
+    public function getPostcodeWoonplaats(): ?string
     {
         return $this->postcodeWoonplaats;
     }
 
-    public function getRegio()
+    public function getRegio(): ?string
     {
         return $this->regio;
     }
 
-    public function getLand()
+    public function getLand(): ?string
     {
         return $this->land;
     }
 
-    public function getGeoData()
+    public function getGeoData(): ?GeoData
     {
         return $this->geoData;
     }
 
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }

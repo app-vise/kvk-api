@@ -17,47 +17,47 @@ class VestigingList
 
     public function __construct(
         string $kvkNummer,
+        array $vestigingen,
         ?int $aantalCommercieleVestigingen,
         ?int $aantalNietCommercieleVestigingen,
         ?int $totaalAantalVestigingen,
-        ?array $vestigingen,
         ?array $links
     ) {
         $this->kvkNummer = $kvkNummer;
+        $this->vestigingen = $vestigingen;
         $this->aantalCommercieleVestigingen = $aantalCommercieleVestigingen;
         $this->aantalNietCommercieleVestigingen = $aantalNietCommercieleVestigingen;
         $this->totaalAantalVestigingen = $totaalAantalVestigingen;
-        $this->vestigingen = $vestigingen;
         $this->links = $links;
-    }
-
-    public function getAantalCommercieleVestigingen()
-    {
-        return $this->aantalCommercieleVestigingen;
-    }
-
-    public function getAantalNietCommercieleVestigingen()
-    {
-        return $this->aantalNietCommercieleVestigingen;
-    }
-
-    public function getTotaalAantalVestigingen()
-    {
-        return $this->totaalAantalVestigingen;
-    }
-
-    public function getVestigingen()
-    {
-        return $this->vestigingen;
-    }
-
-    public function getLinks()
-    {
-        return $this->links;
     }
 
     public function getKvkNummer(): string
     {
         return $this->kvkNummer;
+    }
+
+    public function getAantalCommercieleVestigingen(): ?int
+    {
+        return $this->aantalCommercieleVestigingen;
+    }
+
+    public function getAantalNietCommercieleVestigingen(): ?int
+    {
+        return $this->aantalNietCommercieleVestigingen;
+    }
+
+    public function getTotaalAantalVestigingen(): ?int
+    {
+        return $this->totaalAantalVestigingen;
+    }
+
+    public function getVestigingen(): array
+    {
+        return $this->vestigingen;
+    }
+
+    public function getLinks(): ?array
+    {
+        return $this->links;
     }
 }

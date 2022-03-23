@@ -8,7 +8,7 @@ use Appvise\KvkApi\Model\AbstractFactory;
 
 class EmbeddedContainerFactory extends AbstractFactory
 {
-    public static function createArray($array)
+    public static function createArray($array): array
     {
         $list = [];
         foreach ($array as $item) {
@@ -18,11 +18,11 @@ class EmbeddedContainerFactory extends AbstractFactory
         return $list;
     }
 
-    public static function fromResponse($response)
+    public static function fromResponse($response): EmbeddedContainer
     {
         return new EmbeddedContainer(
-            VestigingFactory::fromResponse(self::pluckArray('hoofdvestiging', $response)),
-            EigenaarFactory::fromResponse(self::pluckArray('eigenaar', $response))
+            EigenaarFactory::fromResponse(self::pluckArray('eigenaar', $response)),
+            VestigingFactory::fromResponse(self::pluckArray('hoofdvestiging', $response))
         );
     }
 }

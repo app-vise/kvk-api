@@ -8,7 +8,7 @@ use Appvise\KvkApi\Model\AbstractFactory;
 
 class HandelsnaamFactory extends AbstractFactory
 {
-    public static function createArray($array)
+    public static function createArray($array): array
     {
         $list = [];
         foreach ($array as $item) {
@@ -18,7 +18,7 @@ class HandelsnaamFactory extends AbstractFactory
         return $list;
     }
 
-    public static function fromResponse($response)
+    public static function fromResponse($response): Handelsnaam
     {
         return new Handelsnaam(
             self::pluckString('naam', $response),

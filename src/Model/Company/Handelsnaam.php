@@ -15,12 +15,12 @@ class Handelsnaam
         $this->volgorde = $volgorde;
     }
 
-    public function getNaam()
+    public function getNaam(): string
     {
         return $this->naam;
     }
 
-    public function getVolgorde()
+    public function getVolgorde(): int
     {
         return $this->volgorde;
     }

@@ -19,10 +19,11 @@ class ClientTest extends TestCase
 
     private const ENVIRONMENT = 'test';
     private const USER_KEY = 'NOT_AN_ACTUAL_API_KEY';
+    private const ROOT_CERTIFICATE = '../../cert/private_chain.pem';
 
     public function setUp()
     {
-        $this->client = KvkClientFactory::create(self::USER_KEY, self::ENVIRONMENT);
+        $this->client = KvkClientFactory::create(self::USER_KEY, self::ENVIRONMENT, self::ROOT_CERTIFICATE);
     }
 
     /**

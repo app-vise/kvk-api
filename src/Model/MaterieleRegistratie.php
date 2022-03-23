@@ -4,23 +4,25 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model;
 
+use DateTime;
+
 class MaterieleRegistratie
 {
     private $datumAanvang;
     private $datumEinde;
 
-    public function __construct($datumAanvang, $datumEinde)
+    public function __construct(?DateTime $datumAanvang, ?DateTime $datumEinde)
     {
         $this->datumAanvang = $datumAanvang;
         $this->datumEinde = $datumEinde;
     }
 
-    public function getDatumAanvang()
+    public function getDatumAanvang(): ?DateTime
     {
         return $this->datumAanvang;
     }
 
-    public function getDatumEinde()
+    public function getDatumEinde(): ?DateTime
     {
         return $this->datumEinde;
     }

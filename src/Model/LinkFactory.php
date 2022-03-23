@@ -6,7 +6,7 @@ namespace Appvise\KvkApi\Model;
 
 class LinkFactory extends AbstractFactory
 {
-    public static function createArray($array)
+    public static function createArray($array): array
     {
         $list = [];
         foreach ($array as $item) {
@@ -16,7 +16,7 @@ class LinkFactory extends AbstractFactory
         return $list;
     }
 
-    public static function fromResponse($response)
+    public static function fromResponse($response): Link
     {
         return new Link(
             self::pluckString('rel', $response),

@@ -6,7 +6,7 @@ use Appvise\KvkApi\Model\AbstractFactory;
 
 class VestigingBasisFactory extends AbstractFactory
 {
-    public static function fromResponse($response)
+    public static function fromResponse($response): VestigingBasis
     {
         return new VestigingBasis(
             self::pluckString('vestigingsnummer', $response),

@@ -9,7 +9,7 @@ use Appvise\KvkApi\Model\LinkFactory;
 
 class ResultaatItemFactory extends AbstractFactory
 {
-    public static function fromResponse(array $response)
+    public static function fromResponse(array $response): ResultaatItem
     {
         return new ResultaatItem(
             self::pluckString('kvkNummer', $response),
@@ -25,7 +25,7 @@ class ResultaatItemFactory extends AbstractFactory
         );
     }
 
-    public static function extractLinks(array $responseLinks)
+    public static function extractLinks(array $responseLinks): array
     {
         $links = [];
         foreach ($responseLinks as $link) {

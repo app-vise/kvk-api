@@ -30,27 +30,27 @@ class Eigenaar
         $this->links = $links;
     }
 
-    public function getRsin()
+    public function getRsin(): ?string
     {
         return $this->rsin;
     }
 
-    public function getRechtsvorm()
+    public function getRechtsvorm(): ?string
     {
         return $this->rechtsvorm;
     }
 
-    public function getUitgebreideRechtsvorm()
+    public function getUitgebreideRechtsvorm(): ?string
     {
         return $this->uitgebreideRechtsvorm;
     }
 
-    public function getAdressen()
+    public function getAdressen(): ?array
     {
         return $this->adressen;
     }
 
-    public function getLinks()
+    public function getLinks(): ?array
     {
         return $this->links;
     }

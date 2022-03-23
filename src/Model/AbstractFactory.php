@@ -38,7 +38,7 @@ class AbstractFactory
         return DateTime::createFromFormat($format, $haystack[$needle]);
     }
 
-    public static function extractAdressen(array $responseAdressen)
+    public static function extractAdressen(array $responseAdressen): array
     {
         $adressen = [];
         foreach ($responseAdressen as $adres) {
@@ -48,7 +48,7 @@ class AbstractFactory
         return $adressen;
     }
 
-    public static function extractWebsites(array $responseWebsites)
+    public static function extractWebsites(array $responseWebsites): array
     {
         $websites = [];
         foreach ($responseWebsites as $website) {
@@ -58,7 +58,7 @@ class AbstractFactory
         return $websites;
     }
 
-    public static function extractSbiActiviteiten(array $responseSbiActiviteiten)
+    public static function extractSbiActiviteiten(array $responseSbiActiviteiten): array
     {
         $sbiActiviteiten = [];
         foreach ($responseSbiActiviteiten as $sbiActiviteit) {
@@ -68,7 +68,7 @@ class AbstractFactory
         return $sbiActiviteiten;
     }
 
-    public static function extractLinks(array $responseLinks)
+    public static function extractLinks(array $responseLinks): array
     {
         $links = [];
         foreach ($responseLinks as $link) {

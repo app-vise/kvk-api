@@ -15,9 +15,11 @@ class KvkClientFactory
     private const PRODUCTION_URL = 'https://api.kvk.nl/';
     private const DEVELOPMENT_URL = 'https://developers.kvk.nl/test/';
 
-    public static function create(string $userKey, string $stage = 'test'): KvkClientInterface
+    public static function create(string $userKey, string $stage = 'test', string $rootCertificate = null): KvkClientInterface
     {
-        $rootCertificate = __DIR__ . '/../../cert/private_chain.pem';
+        if ($rootCertificate === null) {
+            trigger_error('Root certificate is required. Please configure your system or supply one here.', E_USER_DEPRECATED);
+        }
 
         switch ($stage) {
             case 'production':

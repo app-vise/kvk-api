@@ -15,16 +15,16 @@ class BasisProfielFactory extends AbstractFactory
     {
         return new BasisProfiel(
             self::pluckString('kvkNummer', $response),
-            self::pluckString('indNonMailing', $response),
             self::pluckString('naam', $response),
-            self::pluckString('formeleRegistratiedatum', $response),
+            self::pluckString('indNonMailing', $response),
+            self::pluckDate('formeleRegistratiedatum', $response),
             MaterieleRegistratieFactory::fromResponse($response['materieleRegistratie']),
             self::pluckInteger('totaalWerkzamePersonen', $response),
             self::pluckString('statutaireNaam', $response),
+            EmbeddedContainerFactory::fromResponse($response['_embedded']),
             HandelsnaamFactory::createArray(self::pluckArray('handelsnamen', $response)),
             SbiActiviteitFactory::createArray(self::pluckArray('sbiActiviteiten', $response)),
             LinkFactory::createArray($response['links']),
-            EmbeddedContainerFactory::fromResponse($response['_embedded']),
         );
     }
 }

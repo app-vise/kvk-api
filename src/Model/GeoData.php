@@ -14,7 +14,7 @@ class GeoData
     private $rijksdriehoekY;
     private $rijksdriehoekZ;
 
-    public function __construct($addresseerbaarObjectId, $nummerAanduidingId, $gpsLatitude, $gpsLongitude, $rijksdriehoekX, $rijksdriehoekY, $rijksdriehoekZ)
+    public function __construct(?string $addresseerbaarObjectId, ?string $nummerAanduidingId, ?float $gpsLatitude, ?float $gpsLongitude, ?float $rijksdriehoekX, ?float $rijksdriehoekY, ?float $rijksdriehoekZ)
     {
         $this->addresseerbaarObjectId = $addresseerbaarObjectId;
         $this->nummerAanduidingId = $nummerAanduidingId;
@@ -25,37 +25,37 @@ class GeoData
         $this->rijksdriehoekZ = $rijksdriehoekZ;
     }
 
-    public function getAddresseerbaarObjectId()
+    public function getAddresseerbaarObjectId(): ?string
     {
         return $this->addresseerbaarObjectId;
     }
 
-    public function getNummerAanduidingId()
+    public function getNummerAanduidingId(): ?string
     {
         return $this->nummerAanduidingId;
     }
 
-    public function getGpsLatitude()
+    public function getGpsLatitude(): ?float
     {
         return $this->gpsLatitude;
     }
 
-    public function getGpsLongitude()
+    public function getGpsLongitude(): ?float
     {
         return $this->gpsLongitude;
     }
 
-    public function getRijksdriehoekX()
+    public function getRijksdriehoekX(): ?float
     {
         return $this->rijksdriehoekX;
     }
 
-    public function getRijksdriehoekY()
+    public function getRijksdriehoekY(): ?float
     {
         return $this->rijksdriehoekY;
     }
 
-    public function getRijksdriehoekZ()
+    public function getRijksdriehoekZ(): ?float
     {
         return $this->rijksdriehoekZ;
     }

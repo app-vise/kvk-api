@@ -6,11 +6,11 @@ namespace Appvise\KvkApi\Model;
 
 class MaterieleRegistratieFactory extends AbstractFactory
 {
-    public static function fromResponse($response)
+    public static function fromResponse($response): MaterieleRegistratie
     {
         return new MaterieleRegistratie(
-            self::pluckString('datumAanvang', $response),
-            self::pluckString('datumEinde', $response),
+            self::pluckDate('datumAanvang', $response),
+            self::pluckDate('datumEinde', $response),
         );
     }
 }

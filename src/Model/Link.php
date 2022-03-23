@@ -38,47 +38,47 @@ class Link
         $this->name = $name;
     }
 
-    public function getRel()
+    public function getRel(): ?string
     {
         return $this->rel;
     }
 
-    public function getHref()
+    public function getHref(): ?string
     {
         return $this->href;
     }
 
-    public function getHreflang()
+    public function getHreflang(): ?string
     {
         return $this->hreflang;
     }
 
-    public function getMedia()
+    public function getMedia(): ?string
     {
         return $this->media;
     }
 
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function getType()
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function getDeprecation()
+    public function getDeprecation(): ?string
     {
         return $this->deprecation;
     }
 
-    public function getProfile()
+    public function getProfile(): ?string
     {
         return $this->profile;
     }
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }

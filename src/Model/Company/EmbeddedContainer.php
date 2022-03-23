@@ -9,7 +9,7 @@ class EmbeddedContainer
     private $hoofdvestiging;
     private $eigenaar;
 
-    public function __construct($hoofdvestiging, $eigenaar)
+    public function __construct(Eigenaar $eigenaar, ?Vestiging $hoofdvestiging)
     {
         $this->hoofdvestiging = $hoofdvestiging;
         $this->eigenaar = $eigenaar;

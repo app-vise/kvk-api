@@ -9,7 +9,7 @@ use Appvise\KvkApi\Model\MaterieleRegistratieFactory;
 
 class VestigingFactory extends AbstractFactory
 {
-    public static function fromResponse($response)
+    public static function fromResponse($response): ?Vestiging
     {
         if (! $response) {
             return null;

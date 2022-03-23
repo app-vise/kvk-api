@@ -35,42 +35,42 @@ class VestigingBasis
         $this->links = $links;
     }
 
-    public function getKvkNummer()
+    public function getKvkNummer(): ?string
     {
         return $this->kvkNummer;
     }
 
-    public function getVestigingsNummer()
+    public function getVestigingsNummer(): string
     {
         return $this->vestigingsNummer;
     }
 
-    public function getEersteHandelsnaam()
+    public function getEersteHandelsnaam(): ?string
     {
         return $this->eersteHandelsnaam;
     }
 
-    public function getIndHoofdvestiging()
+    public function getIndHoofdvestiging(): ?string
     {
         return $this->indHoofdvestiging;
     }
 
-    public function getIndAdresAfgeschermd()
+    public function getIndAdresAfgeschermd(): ?string
     {
         return $this->indAdresAfgeschermd;
     }
 
-    public function getIndCommercieleVestiging()
+    public function getIndCommercieleVestiging(): ?string
     {
         return $this->indCommercieleVestiging;
     }
 
-    public function getVolledigAdres()
+    public function getVolledigAdres(): ?string
     {
         return $this->volledigAdres;
     }
 
-    public function getLinks()
+    public function getLinks(): ?array
     {
         return $this->links;
     }

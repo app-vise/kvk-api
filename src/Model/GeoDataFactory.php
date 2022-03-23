@@ -6,7 +6,7 @@ namespace Appvise\KvkApi\Model;
 
 class GeoDataFactory extends AbstractFactory
 {
-    public static function fromResponse($response)
+    public static function fromResponse($response): ?GeoData
     {
         if (! $response) {
             return null;

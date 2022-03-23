@@ -23,12 +23,12 @@ class Resultaat implements ResultaatInterface
         $this->vorige = $vorige;
     }
 
-    public function getPagina()
+    public function getPagina(): int
     {
         return $this->pagina;
     }
 
-    public function getTotaal()
+    public function getTotaal(): int
     {
         return $this->totaal;
     }

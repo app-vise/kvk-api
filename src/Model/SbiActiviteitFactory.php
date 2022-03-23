@@ -6,7 +6,7 @@ namespace Appvise\KvkApi\Model;
 
 class SbiActiviteitFactory extends AbstractFactory
 {
-    public static function createArray($array)
+    public static function createArray($array): array
     {
         $list = [];
         foreach ($array as $item) {
@@ -16,7 +16,7 @@ class SbiActiviteitFactory extends AbstractFactory
         return $list;
     }
 
-    public static function fromResponse($response)
+    public static function fromResponse($response): SbiActiviteit
     {
         return new SbiActiviteit(
             self::pluckString('sbiCode', $response),

@@ -1,0 +1,12 @@
+image: composer:2.0
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Test
+            script:
+              - composer install
+              - composer test
+            caches:
+              - composer

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Company;
 
+use Appvise\KvkApi\Model\MaterieleRegistratie;
 use Appvise\KvkApi\Model\SbiActiviteit;
+use DateTime;
 
 class BasisProfiel
 {
@@ -15,6 +17,7 @@ class BasisProfiel
     private $materieleRegistratie;
     private $totaalWerkzamePersonen;
     private $statutaireNaam;
+    /** @var Handelsnaam[] */
     private $handelsnamen;
     /** @var SbiActiviteit[] */
     private $sbiActiviteiten;
@@ -23,7 +26,7 @@ class BasisProfiel
     /** @var EmbeddedContainer */
     private $_embedded;
 
-    public function __construct(string $kvkNummer, $indNonMailing, $naam, $formeleRegistratiedatum, $materieleRegistratie, $totaalWerkzamePersonen, $statutaireNaam, array $handelsnamen = null, array $sbiActiviteiten = null, array $links = [], $embedded)
+    public function __construct(string $kvkNummer, string $naam, ?string $indNonMailing,  ?DateTime $formeleRegistratiedatum, ?MaterieleRegistratie $materieleRegistratie, ?int $totaalWerkzamePersonen, ?string $statutaireNaam, ?EmbeddedContainer $embedded, array $handelsnamen = null, array $sbiActiviteiten = null, array $links = [])
     {
         $this->kvkNummer = $kvkNummer;
         $this->indNonMailing = $indNonMailing;
@@ -38,58 +41,58 @@ class BasisProfiel
         $this->_embedded = $embedded;
     }
 
-    public function getMaterieleRegistratie()
+    public function getKvkNummer(): string
     {
-        return $this->materieleRegistratie;
+        return $this->kvkNummer;
     }
 
-    public function getNaam()
+    public function getNaam(): string
     {
         return $this->naam;
     }
 
-    public function getLinks()
+    public function getMaterieleRegistratie(): ?MaterieleRegistratie
+    {
+        return $this->materieleRegistratie;
+    }
+
+    public function getLinks(): ?array
     {
         return $this->links;
     }
 
-    public function getIndNonMailing()
+    public function getIndNonMailing(): ?string
     {
         return $this->indNonMailing;
     }
 
-    public function getFormeleRegistratiedatum()
+    public function getFormeleRegistratiedatum(): ?DateTime
     {
         return $this->formeleRegistratiedatum;
     }
 
-    public function getTotaalWerkzamePersonen()
+    public function getTotaalWerkzamePersonen(): ?int
     {
         return $this->totaalWerkzamePersonen;
     }
 
-    public function getStatutaireNaam()
+    public function getStatutaireNaam(): ?string
     {
         return $this->statutaireNaam;
     }
 
-    public function getHandelsnamen()
+    public function getHandelsnamen(): ?array
     {
         return $this->handelsnamen;
     }
 
-    public function getSbiActiviteiten()
+    public function getSbiActiviteiten(): ?array
     {
         return $this->sbiActiviteiten;
     }
 
-    public function getEmbedded()
+    public function getEmbedded(): ?EmbeddedContainer
     {
         return $this->_embedded;
-    }
-
-    public function getKvkNummer(): string
-    {
-        return $this->kvkNummer;
     }
 }
