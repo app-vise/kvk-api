@@ -6,7 +6,7 @@ This library makes this easy for you. Check for installation and usage details b
 ### Installation
 Install this package via composer
 ```bash
-composer require app-vise/kvk-api
+composer require appvise/kvk-api
 ```
 
 Probably you want to install the KVK (Staat der Nederlanden Private Root CA - G1) certificate into you trusted chains.
