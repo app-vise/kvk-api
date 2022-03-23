@@ -3,10 +3,10 @@
 namespace Test;
 
 use Appvise\KvkApi\Exception\NotFoundException;
-use Appvise\KvkApi\Http\KvkClientFactory;
 use Appvise\KvkApi\Http\ProfileQuery;
 use Appvise\KvkApi\Http\SearchQuery;
 use Appvise\KvkApi\Http\VestigingsQuery;
+use Appvise\KvkApi\KvkClientFactory;
 use Appvise\KvkApi\Model\Company\BasisProfiel;
 use Appvise\KvkApi\Model\Company\Vestiging;
 use Appvise\KvkApi\Model\Search\ResultaatItem;

@@ -1,7 +1,8 @@
 <?php
 
-namespace Appvise\KvkApi\Http;
+namespace Appvise\KvkApi;
 
+use Appvise\KvkApi\Http\QueryInterface;
 use Appvise\KvkApi\Model\Link;
 
 interface KvkClientInterface

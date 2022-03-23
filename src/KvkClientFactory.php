@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Appvise\KvkApi\Http;
+namespace Appvise\KvkApi;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\HandlerStack;
 use Psr\Http\Message\RequestInterface;
+use Appvise\KvkApi\Http\ClientInterface;
+use Appvise\KvkApi\Http\GuzzleClient;
 
 class KvkClientFactory
 {

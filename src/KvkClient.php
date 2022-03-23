@@ -2,13 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Appvise\KvkApi\Http;
+namespace Appvise\KvkApi;
 
-use Appvise\KvkApi\Model\Company\BasisProfielFactory;
+use Appvise\KvkApi\Model\Link;
+use Appvise\KvkApi\Http\QueryInterface;
+use Appvise\KvkApi\Http\ClientInterface;
+use Appvise\KvkApi\Http\SearchMapper;
 use Appvise\KvkApi\Model\Company\EigenaarFactory;
 use Appvise\KvkApi\Model\Company\VestigingFactory;
+use Appvise\KvkApi\Model\Company\BasisProfielFactory;
 use Appvise\KvkApi\Model\Company\VestigingListFactory;
-use Appvise\KvkApi\Model\Link;
 
 final class KvkClient implements KvkClientInterface
 {
