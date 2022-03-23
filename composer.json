@@ -1,0 +1,48 @@
+{
+    "name": "appvise/kvk-api",
+    "description": "PHP KVK API client",
+    "type": "library",
+    "keywords": [
+        "kvk api",
+        "kvk-api",
+        "appvise",
+        "app-vise"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Appvise\\KvkApi\\": "src/"
+        }
+    },
+     "autoload-dev": {
+        "psr-4": {
+            "Appvise\\KvkApi\\Test\\": ["tests/"]
+        }
+    },
+    "authors": [
+        {
+            "name": "Daan Geurts-Doorenbos",
+            "email": "daan@app-vise.nl"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "php": "^7.3|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+     "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
