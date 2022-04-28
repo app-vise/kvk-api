@@ -25,6 +25,12 @@ class SearchQuery implements QueryInterface
     private $plaats;
 
     /** @var string */
+    private $postcode;
+
+    /** @var string */
+    private $huisnummer;
+
+    /** @var string */
     private $type;
 
     /** @var int */
@@ -66,6 +72,16 @@ class SearchQuery implements QueryInterface
         $this->plaats = $plaats;
     }
 
+    public function setPostcode(string $postcode)
+    {
+        $this->postcode = $postcode;
+    }
+
+    public function setHuisnummer(string $huisnummer)
+    {
+        $this->huisnummer = $huisnummer;
+    }
+
     public function setType(string $type)
     {
         $this->type = $type;
@@ -95,6 +111,8 @@ class SearchQuery implements QueryInterface
             'handelsnaam' => $this->handelsnaam,
             'straatnaam' => $this->straatnaam,
             'plaats' => $this->plaats,
+            'postcode' => $this->postcode,
+            'huisnummer' => $this->huisnummer,
             'type' => $this->type,
             'inclusiefinactieveregistraties' => $this->inclusiefinactieveregistraties,
             'pagina' => $this->pagina,
