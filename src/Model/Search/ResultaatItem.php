@@ -12,6 +12,8 @@ class ResultaatItem
     private $handelsnaam;
     private $straatnaam;
     private $plaats;
+    private $postcode;
+    private $huisnummer;
     private $type;
     private $actief;
     private $vervallenNaam;
@@ -25,6 +27,8 @@ class ResultaatItem
         ?string $handelsnaam,
         ?string $straatnaam,
         ?string $plaats,
+        ?string $postcode,
+        ?string $huisnummer,
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
@@ -36,6 +40,8 @@ class ResultaatItem
         $this->handelsnaam = $handelsnaam;
         $this->straatnaam = $straatnaam;
         $this->plaats = $plaats;
+        $this->postcode = $postcode;
+        $this->huisnummer = $huisnummer;
         $this->type = $type;
         $this->actief = $actief;
         $this->vervallenNaam = $vervallenNaam;
@@ -89,5 +95,15 @@ class ResultaatItem
     public function getPlaats(): ?string
     {
         return $this->plaats;
+    }
+
+    public function getPostcode(): ?string
+    {
+        return $this->postcode;
+    }
+
+    public function getHuisnummer(): ?string
+    {
+        return $this->huisnummer;
     }
 }

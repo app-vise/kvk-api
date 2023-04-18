@@ -16,8 +16,8 @@ class SearchMapper
             $response['aantal'],
             $response['totaal'],
             self::extractCompanies($response['resultaten']),
-            (array_key_exists('vorige', $response)) ? $response['vorige'] : null,
             (array_key_exists('volgende', $response)) ? $response['volgende'] : null,
+            (array_key_exists('vorige', $response)) ? $response['vorige'] : null,
         );
     }
 
