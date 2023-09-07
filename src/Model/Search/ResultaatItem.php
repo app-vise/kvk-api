@@ -28,7 +28,7 @@ class ResultaatItem
         ?string $straatnaam,
         ?string $plaats,
         ?string $postcode,
-        ?string $huisnummer,
+        ?int $huisnummer,
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
@@ -102,7 +102,7 @@ class ResultaatItem
         return $this->postcode;
     }
 
-    public function getHuisnummer(): ?string
+    public function getHuisnummer(): ?int
     {
         return $this->huisnummer;
     }
