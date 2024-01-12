@@ -31,7 +31,7 @@ class Adres
         ?string $straatnaam,
         ?string $huisnummer,
         ?string $huisnummerToevoeging,
-        ?string $huisletter,
+        ?int $huisletter,
         ?string $aanduidingBijHuisnummer,
         ?string $toevoegingAdres,
         ?string $postcode,
@@ -82,7 +82,7 @@ class Adres
         return $this->huisnummerToevoeging;
     }
 
-    public function getHuisletter(): ?string
+    public function getHuisletter(): ?int
     {
         return $this->huisletter;
     }
