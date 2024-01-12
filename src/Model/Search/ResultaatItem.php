@@ -7,23 +7,36 @@ namespace Appvise\KvkApi\Model\Search;
 class ResultaatItem
 {
     private $kvkNummer;
+
     private $rsin;
+
     private $vestigingsnummer;
+
     private $handelsnaam;
+
     private $adresType;
+
     private $straatnaam;
+
     private $postcode;
+
     private $plaats;
+
     private $huisnummer;
+
     private $huisnummerToevoeging;
+
     private $type;
+
     private $actief;
+
     private $vervallenNaam;
+
     /** @var Link[] */
     private $links;
 
     public function __construct(
-        string $kvkNumber,
+        string  $kvkNumber,
         ?string $rsin,
         ?string $vestigingsnummer,
         ?string $handelsnaam,
@@ -31,12 +44,12 @@ class ResultaatItem
         ?string $straatnaam,
         ?string $postcode,
         ?string $plaats,
-        ?int $huisnummer,
+        ?string $huisnummer,
         ?string $huisnummerToevoeging,
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
-        ?array $links = null
+        ?array  $links = null
     ) {
         $this->kvkNummer = $kvkNumber;
         $this->rsin = $rsin;
