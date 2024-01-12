@@ -4,23 +4,30 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Company;
 
+use Appvise\KvkApi\Model\Link;
+
 class VestigingList
 {
     private $kvkNummer;
+
     private $aantalCommercieleVestigingen;
+
     private $aantalNietCommercieleVestigingen;
+
     private $totaalAantalVestigingen;
+
     /** @var VestigingBasis[] */
     private $vestigingen;
+
     /** @var Link[] */
     private $links;
 
     public function __construct(
         string $kvkNummer,
-        array $vestigingen,
-        ?int $aantalCommercieleVestigingen,
-        ?int $aantalNietCommercieleVestigingen,
-        ?int $totaalAantalVestigingen,
+        array  $vestigingen,
+        ?int   $aantalCommercieleVestigingen,
+        ?int   $aantalNietCommercieleVestigingen,
+        ?int   $totaalAantalVestigingen,
         ?array $links
     ) {
         $this->kvkNummer = $kvkNummer;
@@ -59,5 +66,29 @@ class VestigingList
     public function getLinks(): ?array
     {
         return $this->links;
+    }
+
+    public function toArray(): array
+    {
+        $vestigingenArray = [];
+        foreach ($this->vestigingen as $vestiging) {
+            $vestigingenArray[] = $vestiging->toArray();
+        }
+
+        $linksArray = [];
+        if ($this->links !== null) {
+            foreach ($this->links as $link) {
+                $linksArray[] = $link->toArray();
+            }
+        }
+
+        return [
+            'kvkNummer' => $this->kvkNummer,
+            'aantalCommercieleVestigingen' => $this->aantalCommercieleVestigingen,
+            'aantalNietCommercieleVestigingen' => $this->aantalNietCommercieleVestigingen,
+            'totaalAantalVestigingen' => $this->totaalAantalVestigingen,
+            'vestigingen' => $vestigingenArray,
+            'links' => $linksArray,
+        ];
     }
 }

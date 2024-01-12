@@ -5,14 +5,19 @@ declare(strict_types=1);
 namespace Appvise\KvkApi\Model\Company;
 
 use Appvise\KvkApi\Model\Adres;
+use Appvise\KvkApi\Model\Link;
 
 class Eigenaar
 {
     private $rsin;
+
     private $rechtsvorm;
+
     private $uitgebreideRechtsvorm;
+
     /** @var Adres[] */
     private $adressen;
+
     /** @var Link[] */
     private $links;
 
@@ -20,8 +25,8 @@ class Eigenaar
         ?string $rsin,
         ?string $rechtsvorm,
         ?string $uitgebreideRechtsvorm,
-        ?array $adressen,
-        ?array $links
+        ?array  $adressen,
+        ?array  $links
     ) {
         $this->rsin = $rsin;
         $this->rechtsvorm = $rechtsvorm;
@@ -53,5 +58,26 @@ class Eigenaar
     public function getLinks(): ?array
     {
         return $this->links;
+    }
+
+    public function toArray(): array
+    {
+        $adressenArray = [];
+        foreach ($this->adressen as $adres) {
+            $adressenArray[] = $adres->toArray();
+        }
+
+        $linksArray = [];
+        foreach ($this->links as $link) {
+            $linksArray[] = $link->toArray();
+        }
+
+        return [
+            'rsin' => $this->rsin,
+            'rechtsvorm' => $this->rechtsvorm,
+            'uitgebreideRechtsvorm' => $this->uitgebreideRechtsvorm,
+            'adressen' => $adressenArray,
+            'links' => $linksArray,
+        ];
     }
 }

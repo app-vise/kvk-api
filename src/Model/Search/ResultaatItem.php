@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Search;
 
+use Appvise\KvkApi\Model\Link;
+
 class ResultaatItem
 {
     private $kvkNummer;
@@ -36,7 +38,7 @@ class ResultaatItem
     private $links;
 
     public function __construct(
-        string $kvkNumber,
+        string  $kvkNumber,
         ?string $rsin,
         ?string $vestigingsnummer,
         ?string $handelsnaam,
@@ -49,7 +51,7 @@ class ResultaatItem
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
-        ?array $links = null
+        ?array  $links = null
     ) {
         $this->kvkNummer = $kvkNumber;
         $this->rsin = $rsin;
@@ -143,5 +145,30 @@ class ResultaatItem
     public function getHuisnummerToevoeging(): ?string
     {
         return $this->huisnummerToevoeging;
+    }
+
+    public function toArray(): array
+    {
+        $linksArray = [];
+        foreach ($this->links as $link) {
+            $linksArray[] = $link->toArray();
+        }
+
+        return [
+            'kvkNummer' => $this->kvkNummer,
+            'rsin' => $this->rsin,
+            'vestigingsnummer' => $this->vestigingsnummer,
+            'handelsnaam' => $this->handelsnaam,
+            'adresType' => $this->adresType,
+            'straatnaam' => $this->straatnaam,
+            'postcode' => $this->postcode,
+            'plaats' => $this->plaats,
+            'huisnummer' => $this->huisnummer,
+            'huisnummerToevoeging' => $this->huisnummerToevoeging,
+            'type' => $this->type,
+            'actief' => $this->actief,
+            'vervallenNaam' => $this->vervallenNaam,
+            'links' => $linksArray,
+        ];
     }
 }

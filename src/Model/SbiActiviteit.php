@@ -7,7 +7,9 @@ namespace Appvise\KvkApi\Model;
 class SbiActiviteit
 {
     private $sbiCode;
+
     private $sbiOmschrijving;
+
     private $indHoofdactiviteit;
 
     public function __construct(?string $sbiCode, ?string $sbiOmschrijving, ?string $indHoofdactiviteit)
@@ -30,5 +32,14 @@ class SbiActiviteit
     public function getIndHoofdactiviteit(): ?string
     {
         return $this->indHoofdactiviteit;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'sbiCode' => $this->sbiCode,
+            'sbiOmschrijving' => $this->sbiOmschrijving,
+            'indHoofdactiviteit' => $this->indHoofdactiviteit,
+        ];
     }
 }
