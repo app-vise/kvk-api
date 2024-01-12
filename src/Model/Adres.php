@@ -29,9 +29,9 @@ class Adres
         ?string $indAfgeschermd,
         ?string $volledigAdres,
         ?string $straatnaam,
-        ?string $huisnummer,
+        ?int $huisnummer,
         ?string $huisnummerToevoeging,
-        ?int $huisletter,
+        ?string $huisletter,
         ?string $aanduidingBijHuisnummer,
         ?string $toevoegingAdres,
         ?string $postcode,
@@ -72,7 +72,7 @@ class Adres
         return $this->straatnaam;
     }
 
-    public function getHuisnummer(): ?string
+    public function getHuisnummer(): ?int
     {
         return $this->huisnummer;
     }
@@ -82,7 +82,7 @@ class Adres
         return $this->huisnummerToevoeging;
     }
 
-    public function getHuisletter(): ?int
+    public function getHuisletter(): ?string
     {
         return $this->huisletter;
     }
