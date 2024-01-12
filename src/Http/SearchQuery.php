@@ -22,28 +22,28 @@ class SearchQuery implements QueryInterface
     private $straatnaam;
 
     /** @var string */
-    private $plaats;
-
-    /** @var string */
-    private $postcode;
-
-    /** @var string */
     private $huisnummer;
 
     /** @var string */
     private $huisnummerToevoeging;
 
     /** @var string */
+    private $postcode;
+
+    /** @var string */
+    private $plaats;
+
+    /** @var string */
     private $type;
+
+    /** @var bool */
+    private $inclusiefinactieveregistraties;
 
     /** @var int */
     private $pagina;
 
     /** @var int */
     private $aantal;
-
-    /** @var bool */
-    private $inclusiefinactieveregistraties;
 
     public function setKvkNumber(string $kvkNumber)
     {
