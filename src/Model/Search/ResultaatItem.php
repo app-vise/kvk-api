@@ -36,7 +36,7 @@ class ResultaatItem
     private $links;
 
     public function __construct(
-        string  $kvkNumber,
+        string $kvkNumber,
         ?string $rsin,
         ?string $vestigingsnummer,
         ?string $handelsnaam,
@@ -49,7 +49,7 @@ class ResultaatItem
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
-        ?array  $links = null
+        ?array $links = null
     ) {
         $this->kvkNummer = $kvkNumber;
         $this->rsin = $rsin;
@@ -67,7 +67,15 @@ class ResultaatItem
         $this->links = $links;
     }
 
+    /**
+     * @deprecated use getKvkNummer()
+     */
     public function getKvkNumber(): string
+    {
+        return $this->kvkNummer;
+    }
+
+    public function getKvkNummer(): string
     {
         return $this->kvkNummer;
     }

@@ -40,6 +40,7 @@ class ClientTest extends TestCase
         foreach ($resultaten->getResultaten() as $searchResult) {
             $this->assertInstanceOf(ResultaatItem::class, $searchResult);
             $this->assertEquals($kvkNumber, $searchResult->getKvkNumber());
+            $this->assertEquals($kvkNumber, $searchResult->getKvkNummer());
         }
     }
 
