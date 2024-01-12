@@ -31,6 +31,9 @@ class SearchQuery implements QueryInterface
     private $huisnummer;
 
     /** @var string */
+    private $huisnummerToevoeging;
+
+    /** @var string */
     private $type;
 
     /** @var int */
@@ -82,6 +85,11 @@ class SearchQuery implements QueryInterface
         $this->huisnummer = $huisnummer;
     }
 
+    public function setHuisnummerToevoeging(string $huisnummerToevoeging)
+    {
+        $this->huisnummerToevoeging = $huisnummerToevoeging;
+    }
+
     public function setType(string $type)
     {
         $this->type = $type;
@@ -113,6 +121,7 @@ class SearchQuery implements QueryInterface
             'plaats' => $this->plaats,
             'postcode' => $this->postcode,
             'huisnummer' => $this->huisnummer,
+            'huisnummerToevoeging' => $this->huisnummerToevoeging,
             'type' => $this->type,
             'inclusiefinactieveregistraties' => $this->inclusiefinactieveregistraties,
             'pagina' => $this->pagina,
