@@ -10,10 +10,12 @@ class ResultaatItem
     private $rsin;
     private $vestigingsnummer;
     private $handelsnaam;
+    private $adresType;
     private $straatnaam;
-    private $plaats;
     private $postcode;
+    private $plaats;
     private $huisnummer;
+    private $huisnummerToevoeging;
     private $type;
     private $actief;
     private $vervallenNaam;
@@ -25,10 +27,12 @@ class ResultaatItem
         ?string $rsin,
         ?string $vestigingsnummer,
         ?string $handelsnaam,
+        ?string $adresType,
         ?string $straatnaam,
-        ?string $plaats,
         ?string $postcode,
+        ?string $plaats,
         ?int $huisnummer,
+        ?string $huisnummerToevoeging,
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
@@ -38,10 +42,12 @@ class ResultaatItem
         $this->rsin = $rsin;
         $this->vestigingsnummer = $vestigingsnummer;
         $this->handelsnaam = $handelsnaam;
+        $this->adresType = $adresType;
         $this->straatnaam = $straatnaam;
         $this->plaats = $plaats;
         $this->postcode = $postcode;
         $this->huisnummer = $huisnummer;
+        $this->huisnummerToevoeging = $huisnummerToevoeging;
         $this->type = $type;
         $this->actief = $actief;
         $this->vervallenNaam = $vervallenNaam;
@@ -68,6 +74,11 @@ class ResultaatItem
         return $this->handelsnaam;
     }
 
+    public function getAdresType(): ?string
+    {
+        return $this->adresType;
+    }
+
     public function getStraatnaam(): ?string
     {
         return $this->straatnaam;
@@ -82,6 +93,7 @@ class ResultaatItem
     {
         return $this->vervallenNaam;
     }
+
     public function getActief(): ?string
     {
         return $this->actief;
@@ -92,18 +104,23 @@ class ResultaatItem
         return $this->links;
     }
 
-    public function getPlaats(): ?string
-    {
-        return $this->plaats;
-    }
-
     public function getPostcode(): ?string
     {
         return $this->postcode;
     }
 
+    public function getPlaats(): ?string
+    {
+        return $this->plaats;
+    }
+
     public function getHuisnummer(): ?int
     {
         return $this->huisnummer;
+    }
+
+    public function getHuisnummerToevoeging(): ?string
+    {
+        return $this->huisnummerToevoeging;
     }
 }
