@@ -127,7 +127,7 @@ class ResultaatItem
         return $this->plaats;
     }
 
-    public function getHuisnummer(): ?int
+    public function getHuisnummer(): ?string
     {
         return $this->huisnummer;
     }
