@@ -7,13 +7,21 @@ namespace Appvise\KvkApi\Model;
 class Link
 {
     private $rel;
+
     private $href;
+
     private $hreflang;
+
     private $media;
+
     private $title;
+
     private $type;
+
     private $deprecation;
+
     private $profile;
+
     private $name;
 
     public function __construct(
@@ -81,5 +89,20 @@ class Link
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'rel' => $this->rel,
+            'href' => $this->href,
+            'hreflang' => $this->hreflang,
+            'media' => $this->media,
+            'title' => $this->title,
+            'type' => $this->type,
+            'deprecation' => $this->deprecation,
+            'profile' => $this->profile,
+            'name' => $this->name,
+        ];
     }
 }

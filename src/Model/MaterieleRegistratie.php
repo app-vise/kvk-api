@@ -9,6 +9,7 @@ use DateTime;
 class MaterieleRegistratie
 {
     private $datumAanvang;
+
     private $datumEinde;
 
     public function __construct(?DateTime $datumAanvang, ?DateTime $datumEinde)
@@ -25,5 +26,13 @@ class MaterieleRegistratie
     public function getDatumEinde(): ?DateTime
     {
         return $this->datumEinde;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'datumAanvang' => $this->datumAanvang,
+            'datumEinde' => $this->datumEinde,
+        ];
     }
 }

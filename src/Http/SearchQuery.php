@@ -22,25 +22,28 @@ class SearchQuery implements QueryInterface
     private $straatnaam;
 
     /** @var string */
-    private $plaats;
+    private $huisnummer;
+
+    /** @var string */
+    private $huisnummerToevoeging;
 
     /** @var string */
     private $postcode;
 
     /** @var string */
-    private $huisnummer;
+    private $plaats;
 
     /** @var string */
     private $type;
+
+    /** @var bool */
+    private $inclusiefinactieveregistraties;
 
     /** @var int */
     private $pagina;
 
     /** @var int */
     private $aantal;
-
-    /** @var bool */
-    private $inclusiefinactieveregistraties;
 
     public function setKvkNumber(string $kvkNumber)
     {
@@ -82,6 +85,11 @@ class SearchQuery implements QueryInterface
         $this->huisnummer = $huisnummer;
     }
 
+    public function setHuisnummerToevoeging(string $huisnummerToevoeging)
+    {
+        $this->huisnummerToevoeging = $huisnummerToevoeging;
+    }
+
     public function setType(string $type)
     {
         $this->type = $type;
@@ -113,6 +121,7 @@ class SearchQuery implements QueryInterface
             'plaats' => $this->plaats,
             'postcode' => $this->postcode,
             'huisnummer' => $this->huisnummer,
+            'huisnummerToevoeging' => $this->huisnummerToevoeging,
             'type' => $this->type,
             'inclusiefinactieveregistraties' => $this->inclusiefinactieveregistraties,
             'pagina' => $this->pagina,

@@ -7,40 +7,56 @@ namespace Appvise\KvkApi\Model;
 class Adres
 {
     private $type;
+
     private $indAfgeschermd;
+
     private $volledigAdres;
+
     private $straatnaam;
+
     private $huisnummer;
+
     private $huisnummerToevoeging;
+
     private $huisletter;
+
     private $aanduidingBijHuisnummer;
+
     private $toevoegingAdres;
+
     private $postcode;
+
     private $postbusnummer;
+
     private $plaats;
+
     private $straatHuisnummer;
+
     private $postcodeWoonplaats;
+
     private $regio;
+
     private $land;
+
     private $geoData;
 
     public function __construct(
-        ?string $type,
-        ?string $indAfgeschermd,
-        ?string $volledigAdres,
-        ?string $straatnaam,
-        ?int $huisnummer,
-        ?string $huisnummerToevoeging,
-        ?string $huisletter,
-        ?string $aanduidingBijHuisnummer,
-        ?string $toevoegingAdres,
-        ?string $postcode,
-        ?int $postbusnummer,
-        ?string $plaats,
-        ?string $straatHuisnummer,
-        ?string $postcodeWoonplaats,
-        ?string $regio,
-        ?string $land,
+        ?string  $type,
+        ?string  $indAfgeschermd,
+        ?string  $volledigAdres,
+        ?string  $straatnaam,
+        ?int     $huisnummer,
+        ?string  $huisnummerToevoeging,
+        ?string  $huisletter,
+        ?string  $aanduidingBijHuisnummer,
+        ?string  $toevoegingAdres,
+        ?string  $postcode,
+        ?int     $postbusnummer,
+        ?string  $plaats,
+        ?string  $straatHuisnummer,
+        ?string  $postcodeWoonplaats,
+        ?string  $regio,
+        ?string  $land,
         ?GeoData $geoData
     ) {
         $this->type = $type;
@@ -145,5 +161,28 @@ class Adres
     public function getVolledigAdres(): string
     {
         return $this->volledigAdres;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'type' => $this->type,
+            'indAfgeschermd' => $this->indAfgeschermd,
+            'volledigAdres' => $this->volledigAdres,
+            'straatnaam' => $this->straatnaam,
+            'huisnummer' => $this->huisnummer,
+            'huisnummerToevoeging' => $this->huisnummerToevoeging,
+            'huisletter' => $this->huisletter,
+            'aanduidingBijHuisnummer' => $this->aanduidingBijHuisnummer,
+            'toevoegingAdres' => $this->toevoegingAdres,
+            'postcode' => $this->postcode,
+            'postbusnummer' => $this->postbusnummer,
+            'plaats' => $this->plaats,
+            'straatHuisnummer' => $this->straatHuisnummer,
+            'postcodeWoonplaats' => $this->postcodeWoonplaats,
+            'regio' => $this->regio,
+            'land' => $this->land,
+            'geoData' => $this->geoData ? $this->geoData->toArray() : null,
+        ];
     }
 }

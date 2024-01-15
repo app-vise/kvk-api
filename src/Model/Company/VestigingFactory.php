@@ -21,7 +21,7 @@ class VestigingFactory extends AbstractFactory
             self::pluckString('rsin', $response),
             self::pluckString('indNonMailing', $response),
             self::pluckDate('formeleRegistratiedatum', $response),
-            MaterieleRegistratieFactory::fromResponse($response),
+            MaterieleRegistratieFactory::fromResponse($response['materieleRegistratie']),
             self::pluckString('eersteHandelsnaam', $response),
             self::pluckString('indHoofdvestiging', $response),
             self::pluckString('indCommercieleVestiging', $response),

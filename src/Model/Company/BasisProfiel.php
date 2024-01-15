@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Company;
 
+use Appvise\KvkApi\Model\Link;
 use Appvise\KvkApi\Model\MaterieleRegistratie;
 use Appvise\KvkApi\Model\SbiActiviteit;
 use DateTime;

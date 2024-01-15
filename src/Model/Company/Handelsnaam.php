@@ -24,4 +24,12 @@ class Handelsnaam
     {
         return $this->volgorde;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'naam' => $this->naam,
+            'volgorde' => $this->volgorde,
+        ];
+    }
 }
