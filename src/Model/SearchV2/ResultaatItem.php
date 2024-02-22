@@ -164,12 +164,17 @@ class ResultaatItem
             $linksArray[] = $link->toArray();
         }
 
+        $adresArray = [];
+        foreach ($this->adres as $adres) {
+            $adresArray[] = $adres->toArray();
+        }
+
         return [
             'kvkNummer' => $this->kvkNummer,
             'rsin' => $this->rsin,
             'vestigingsnummer' => $this->vestigingsnummer,
             'naam' => $this->naam,
-            'adres' => $this->adres,
+            'adres' => $adresArray,
             'straatnaam' => $this->straatnaam,
             'postcode' => $this->postcode,
             'plaats' => $this->plaats,

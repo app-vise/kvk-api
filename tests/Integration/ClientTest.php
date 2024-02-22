@@ -25,24 +25,24 @@ class ClientTest extends TestCase
     {
         $this->client = KvkClientFactory::create(self::USER_KEY, self::ENVIRONMENT, self::ROOT_CERTIFICATE);
     }
-//
-//    /**
-//     * @test
-//     * @dataProvider getKvkNumbers
-//     **/
-//    public function search(string $kvkNumber)
-//    {
-//        $query = new SearchQuery();
-//        $query->setKvkNumber($kvkNumber);
-//
-//        $resultaten = $this->client->search($query);
-//
-//        foreach ($resultaten->getResultaten() as $searchResult) {
-//            $this->assertInstanceOf(ResultaatItem::class, $searchResult);
-//            $this->assertEquals($kvkNumber, $searchResult->getKvkNumber());
-//            $this->assertEquals($kvkNumber, $searchResult->getKvkNummer());
-//        }
-//    }
+
+   /**
+    * @test
+    * @dataProvider getKvkNumbers
+    **/
+   public function search(string $kvkNumber)
+   {
+       $query = new SearchQuery();
+       $query->setKvkNumber($kvkNumber);
+
+       $resultaten = $this->client->search($query);
+
+       foreach ($resultaten->getResultaten() as $searchResult) {
+           $this->assertInstanceOf(ResultaatItem::class, $searchResult);
+           $this->assertEquals($kvkNumber, $searchResult->getKvkNumber());
+           $this->assertEquals($kvkNumber, $searchResult->getKvkNummer());
+       }
+   }
 
     /**
      * @test
@@ -58,8 +58,6 @@ class ClientTest extends TestCase
         foreach ($resultaten->getResultaten() as $searchResult) {
             $this->assertInstanceOf(\Appvise\KvkApi\Model\SearchV2\ResultaatItem::class, $searchResult);
             $this->assertEquals($kvkNumber, $searchResult->getKvkNummer());
-
-            var_dump($searchResult->getBinnenlandsAdres());
         }
     }
 
