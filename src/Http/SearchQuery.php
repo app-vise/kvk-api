@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Http;
 
-class SearchQuery implements QueryInterface
+class SearchQuery implements SearchQueryInterface
 {
     /** @var string */
     private $kvkNumber;
@@ -30,6 +30,12 @@ class SearchQuery implements QueryInterface
     /** @var string */
     private $huisnummer;
 
+    /** @var null|string */
+    private $huisletter;
+
+    /** @var null|string */
+    private $postbusnummer;
+
     /** @var string */
     private $type;
 
@@ -41,6 +47,15 @@ class SearchQuery implements QueryInterface
 
     /** @var bool */
     private $inclusiefinactieveregistraties;
+    /**
+     * @var bool
+     */
+    private $isEndpointVersion1;
+
+    public function __construct(bool $isEndpointVersion1 = true)
+    {
+        $this->isEndpointVersion1 = $isEndpointVersion1;
+    }
 
     public function setKvkNumber(string $kvkNumber)
     {
@@ -82,6 +97,16 @@ class SearchQuery implements QueryInterface
         $this->huisnummer = $huisnummer;
     }
 
+    public function setHuisletter(?string $huisletter): void
+    {
+        $this->huisletter = $huisletter;
+    }
+
+    public function setPostbusnummer(string $postbusnummer): void
+    {
+        $this->postbusnummer = $postbusnummer;
+    }
+
     public function setType(string $type)
     {
         $this->type = $type;
@@ -102,9 +127,16 @@ class SearchQuery implements QueryInterface
         $this->aantal = $aantal;
     }
 
+    public function setIsEndpointVersion1(bool $isEndpointVersion1): self
+    {
+        $this->isEndpointVersion1 = $isEndpointVersion1;
+
+        return $this;
+    }
+
     public function toArray(): array
     {
-        return [
+        $array = [
             'kvkNummer' => $this->kvkNumber,
             'rsin' => $this->rsin,
             'vestigingsnummer' => $this->vestigingsnummer,
@@ -116,7 +148,25 @@ class SearchQuery implements QueryInterface
             'type' => $this->type,
             'inclusiefinactieveregistraties' => $this->inclusiefinactieveregistraties,
             'pagina' => $this->pagina,
-            'aantal' => $this->aantal,
         ];
+
+        if ($this->isEndpointVersion1) {
+            $array['aantal'] = $this->aantal;
+            $array['handelsnaam'] = $this->handelsnaam;
+            $array['huisnummerToevoeging'] = $this->huisletter;
+        } else {
+            $array['resultatenPerPagina'] = $this->aantal;
+            $array['naam'] = $this->handelsnaam;
+
+            $array['postbusnummer'] = $this->postbusnummer;
+            $array['huisletter'] = $this->huisletter;
+
+            if (is_string($array['type'])) {
+                $array['type'] = str_replace(',', '&', $array['type']);
+            }
+        }
+
+
+        return $array;
     }
 }

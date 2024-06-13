@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi;
 
+use Appvise\KvkApi\Http\SearchQueryInterface;
 use Appvise\KvkApi\Model\Link;
 use Appvise\KvkApi\Http\QueryInterface;
 use Appvise\KvkApi\Http\ClientInterface;
@@ -12,6 +13,7 @@ use Appvise\KvkApi\Model\Company\EigenaarFactory;
 use Appvise\KvkApi\Model\Company\VestigingFactory;
 use Appvise\KvkApi\Model\Company\BasisProfielFactory;
 use Appvise\KvkApi\Model\Company\VestigingListFactory;
+use Appvise\KvkApi\Model\ResultaatInterface;
 
 final class KvkClient implements KvkClientInterface
 {
@@ -64,6 +66,17 @@ final class KvkClient implements KvkClientInterface
         $result = $this->decodeJson($response);
 
         return SearchMapper::fromResponse($result);
+    }
+
+    public function searchV2(SearchQueryInterface $query): ResultaatInterface
+    {
+        // Forcefully update to V2 so the proper parameters will be used in toArray.
+        $query->setIsEndpointVersion1(false);
+
+        $response = $this->client->hitEndpoint("{$this->baseUrl}api/v2/zoeken", $query);
+        $result = $this->decodeJson($response);
+
+        return SearchMapper::fromV2Response($result);
     }
 
     public function getBasisProfiel(QueryInterface $query)

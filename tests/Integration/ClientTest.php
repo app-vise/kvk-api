@@ -45,6 +45,23 @@ class ClientTest extends TestCase
 
     /**
      * @test
+     * @dataProvider getKvkNumbers
+     **/
+    public function searchV2(string $kvkNumber)
+    {
+        $query = new SearchQuery(true);
+        $query->setKvkNumber($kvkNumber);
+
+        $resultaten = $this->client->searchV2($query);
+
+        foreach ($resultaten->getResultaten() as $searchResult) {
+            $this->assertInstanceOf(ResultaatItem::class, $searchResult);
+            $this->assertEquals($kvkNumber, $searchResult->getKvkNumber());
+        }
+    }
+
+    /**
+     * @test
      * @dataProvider getNonExistingKvkNumbers
      **/
     public function search_non_existing_companies_should_throw_exception(string $kvkNumber)

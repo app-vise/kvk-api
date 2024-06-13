@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Appvise\KvkApi\Http;
 
 use Appvise\KvkApi\Model\Resultaat;
+use Appvise\KvkApi\Model\ResultaatInterface;
 use Appvise\KvkApi\Model\Search\ResultaatItemFactory;
 
 class SearchMapper
@@ -18,6 +19,18 @@ class SearchMapper
             self::extractCompanies($response['resultaten']),
             (array_key_exists('volgende', $response)) ? $response['volgende'] : null,
             (array_key_exists('vorige', $response)) ? $response['vorige'] : null,
+        );
+    }
+
+    public static function fromV2Response(array $response): ResultaatInterface
+    {
+        return new Resultaat(
+            $response['pagina'],
+            $response['resultatenPerPagina'],
+            $response['totaal'],
+            self::extractCompanies($response['resultaten']),
+            $response['volgende'] ?? null,
+            $response['vorige'] ?? null,
         );
     }
 
