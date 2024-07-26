@@ -16,31 +16,37 @@ class SearchQuery implements QueryInterface
     private $vestigingsnummer;
 
     /** @var string */
-    private $handelsnaam;
+    private $naam;
 
     /** @var string */
     private $straatnaam;
 
     /** @var string */
-    private $plaats;
+    private $huisnummer;
+
+    /** @var string */
+    private $huisletter;
 
     /** @var string */
     private $postcode;
 
     /** @var string */
-    private $huisnummer;
+    private $postbusnummer;
+
+    /** @var string */
+    private $plaats;
 
     /** @var string */
     private $type;
+
+    /** @var bool */
+    private $inclusiefInactieveRegistraties;
 
     /** @var int */
     private $pagina;
 
     /** @var int */
-    private $aantal;
-
-    /** @var bool */
-    private $inclusiefinactieveregistraties;
+    private $resultatenPerPagina;
 
     public function setKvkNumber(string $kvkNumber)
     {
@@ -57,9 +63,9 @@ class SearchQuery implements QueryInterface
         $this->vestigingsnummer = $vestigingsnummer;
     }
 
-    public function setHandelsnaam(string $handelsnaam)
+    public function setNaam(string $naam)
     {
-        $this->handelsnaam = $handelsnaam;
+        $this->naam = $naam;
     }
 
     public function setStraatnaam(string $straatnaam)
@@ -67,9 +73,14 @@ class SearchQuery implements QueryInterface
         $this->straatnaam = $straatnaam;
     }
 
-    public function setPlaats(string $plaats)
+    public function setHuisnummer(string $huisnummer)
     {
-        $this->plaats = $plaats;
+        $this->huisnummer = $huisnummer;
+    }
+
+    public function setHuisletter(string $huisletter)
+    {
+        $this->huisletter = $huisletter;
     }
 
     public function setPostcode(string $postcode)
@@ -77,9 +88,14 @@ class SearchQuery implements QueryInterface
         $this->postcode = $postcode;
     }
 
-    public function setHuisnummer(string $huisnummer)
+    public function setPostbusnummer(string $postbusnummer)
     {
-        $this->huisnummer = $huisnummer;
+        $this->postbusnummer = $postbusnummer;
+    }
+
+    public function setPlaats(string $plaats)
+    {
+        $this->plaats = $plaats;
     }
 
     public function setType(string $type)
@@ -87,9 +103,9 @@ class SearchQuery implements QueryInterface
         $this->type = $type;
     }
 
-    public function setInclusiefinactieveregistraties(bool $inclusiefinactieveregistraties)
+    public function setInclusiefInactieveRegistraties(bool $inclusiefInactieveRegistraties)
     {
-        $this->inclusiefinactieveregistraties = $inclusiefinactieveregistraties;
+        $this->inclusiefInactieveRegistraties = $inclusiefInactieveRegistraties;
     }
 
     public function setPagina(int $pagina)
@@ -97,9 +113,9 @@ class SearchQuery implements QueryInterface
         $this->pagina = $pagina;
     }
 
-    public function setAantal(int $aantal)
+    public function setResultatenPerPagina(int $resultatenPerPagina)
     {
-        $this->aantal = $aantal;
+        $this->resultatenPerPagina = $resultatenPerPagina;
     }
 
     public function toArray(): array
@@ -108,15 +124,17 @@ class SearchQuery implements QueryInterface
             'kvkNummer' => $this->kvkNumber,
             'rsin' => $this->rsin,
             'vestigingsnummer' => $this->vestigingsnummer,
-            'handelsnaam' => $this->handelsnaam,
+            'naam' => $this->naam,
             'straatnaam' => $this->straatnaam,
-            'plaats' => $this->plaats,
-            'postcode' => $this->postcode,
             'huisnummer' => $this->huisnummer,
+            'huisletter' => $this->huisletter,
+            'postcode' => $this->postcode,
+            'postbusnummer' => $this->postbusnummer,
+            'plaats' => $this->plaats,
             'type' => $this->type,
-            'inclusiefinactieveregistraties' => $this->inclusiefinactieveregistraties,
+            'inclusiefInactieveRegistraties' => $this->inclusiefInactieveRegistraties,
             'pagina' => $this->pagina,
-            'aantal' => $this->aantal,
+            'resultatenPerPagina' => $this->resultatenPerPagina,
         ];
     }
 }

@@ -19,9 +19,6 @@ class KvkClientFactory
 
     public static function create(string $userKey, string $stage = 'test', string $rootCertificate = null): KvkClientInterface
     {
-        if ($rootCertificate === null) {
-            trigger_error('Root certificate is required. Please configure your system or supply one here.', E_USER_DEPRECATED);
-        }
 
         switch ($stage) {
             case 'production':

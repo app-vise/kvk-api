@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Search;
 
+use Appvise\KvkApi\Model\BinnenlandAdres;
+use Appvise\KvkApi\Model\BuitenlandAdres;
+use Appvise\KvkApi\Model\Link;
+
 class ResultaatItem
 {
     private $kvkNummer;
     private $rsin;
     private $vestigingsnummer;
-    private $handelsnaam;
-    private $straatnaam;
-    private $plaats;
-    private $postcode;
-    private $huisnummer;
+    private $naam;
+    private $adres;
     private $type;
     private $actief;
     private $vervallenNaam;
@@ -24,11 +25,8 @@ class ResultaatItem
         string $kvkNumber,
         ?string $rsin,
         ?string $vestigingsnummer,
-        ?string $handelsnaam,
-        ?string $straatnaam,
-        ?string $plaats,
-        ?string $postcode,
-        ?int $huisnummer,
+        ?string $naam,
+        BinnenlandAdres|BuitenlandAdres|null $adres,
         ?string $type,
         ?string $actief,
         ?string $vervallenNaam,
@@ -37,11 +35,8 @@ class ResultaatItem
         $this->kvkNummer = $kvkNumber;
         $this->rsin = $rsin;
         $this->vestigingsnummer = $vestigingsnummer;
-        $this->handelsnaam = $handelsnaam;
-        $this->straatnaam = $straatnaam;
-        $this->plaats = $plaats;
-        $this->postcode = $postcode;
-        $this->huisnummer = $huisnummer;
+        $this->naam = $naam;
+        $this->adres = $adres;
         $this->type = $type;
         $this->actief = $actief;
         $this->vervallenNaam = $vervallenNaam;
@@ -63,14 +58,14 @@ class ResultaatItem
         return $this->vestigingsnummer;
     }
 
-    public function getHandelsnaam(): ?string
+    public function getNaam(): ?string
     {
-        return $this->handelsnaam;
+        return $this->naam;
     }
 
-    public function getStraatnaam(): ?string
+    public function getAdres(): BinnenlandAdres|BuitenlandAdres|null
     {
-        return $this->straatnaam;
+        return $this->adres;
     }
 
     public function getType(): ?string
@@ -90,20 +85,5 @@ class ResultaatItem
     public function getLinks(): ?array
     {
         return $this->links;
-    }
-
-    public function getPlaats(): ?string
-    {
-        return $this->plaats;
-    }
-
-    public function getPostcode(): ?string
-    {
-        return $this->postcode;
-    }
-
-    public function getHuisnummer(): ?int
-    {
-        return $this->huisnummer;
     }
 }

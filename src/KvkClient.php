@@ -60,7 +60,7 @@ final class KvkClient implements KvkClientInterface
 
     public function search(QueryInterface $query)
     {
-        $response = $this->client->hitEndpoint("{$this->baseUrl}api/v1/zoeken", $query);
+        $response = $this->client->hitEndpoint("{$this->baseUrl}api/v2/zoeken", $query);
         $result = $this->decodeJson($response);
 
         return SearchMapper::fromResponse($result);

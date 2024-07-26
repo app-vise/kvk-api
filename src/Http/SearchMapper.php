@@ -13,7 +13,7 @@ class SearchMapper
     {
         return new Resultaat(
             $response['pagina'],
-            $response['aantal'],
+            $response['resultatenPerPagina'],
             $response['totaal'],
             self::extractCompanies($response['resultaten']),
             (array_key_exists('volgende', $response)) ? $response['volgende'] : null,
