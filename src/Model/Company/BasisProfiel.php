@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Company;
 
+use Appvise\KvkApi\Model\Link;
 use Appvise\KvkApi\Model\MaterieleRegistratie;
 use Appvise\KvkApi\Model\SbiActiviteit;
 use DateTime;
@@ -26,7 +27,7 @@ class BasisProfiel
     /** @var EmbeddedContainer */
     private $_embedded;
 
-    public function __construct(string $kvkNummer, string $naam, ?string $indNonMailing,  ?DateTime $formeleRegistratiedatum, ?MaterieleRegistratie $materieleRegistratie, ?int $totaalWerkzamePersonen, ?string $statutaireNaam, ?EmbeddedContainer $embedded, array $handelsnamen = null, array $sbiActiviteiten = null, array $links = [])
+    public function __construct(string $kvkNummer, string $naam, ?string $indNonMailing, ?DateTime $formeleRegistratiedatum, ?MaterieleRegistratie $materieleRegistratie, ?int $totaalWerkzamePersonen, ?string $statutaireNaam, ?EmbeddedContainer $embedded, ?array $handelsnamen = null, ?array $sbiActiviteiten = null, array $links = [])
     {
         $this->kvkNummer = $kvkNummer;
         $this->indNonMailing = $indNonMailing;

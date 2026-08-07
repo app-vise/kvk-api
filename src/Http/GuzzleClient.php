@@ -7,7 +7,7 @@ namespace Appvise\KvkApi\Http;
 use Appvise\KvkApi\Exception\ApiException;
 use Appvise\KvkApi\Exception\NotFoundException;
 use GuzzleHttp\ClientInterface as GuzzleHttpClientInterface;
-use GuzzleHttp\Exception\RequestException as ExceptionRequestException;
+use GuzzleHttp\Exception\TransferException;
 
 class GuzzleClient implements ClientInterface
 {
@@ -27,7 +27,7 @@ class GuzzleClient implements ClientInterface
             }
 
             return $this->guzzleClient->request('GET', $endpoint);
-        } catch (ExceptionRequestException $exception) {
+        } catch (TransferException $exception) {
             if ($exception->getCode() == 404) {
                 throw new NotFoundException('Bedrijf met KVK nummer kon niet gevonden worden');
             }

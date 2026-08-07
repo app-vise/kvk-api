@@ -10,27 +10,27 @@ class AbstractFactory
 {
     protected static function pluckString($needle, $haystack): ?string
     {
-        return self::extract($needle, $haystack);
+        return (string) self::extract($needle, $haystack);
     }
 
     protected static function pluckFloat($needle, $haystack): ?float
     {
-        return (float)self::extract($needle, $haystack);
+        return (float) self::extract($needle, $haystack);
     }
 
     protected static function pluckInteger($needle, $haystack): ?int
     {
-        return (int)self::extract($needle, $haystack);
+        return (int) self::extract($needle, $haystack);
     }
 
     protected static function pluckArray($needle, $haystack): ?array
     {
-        return (array)self::extract($needle, $haystack);
+        return (array) self::extract($needle, $haystack);
     }
 
     protected static function pluckDate($needle, $haystack, $format = 'Ymd'): ?DateTime
     {
-        $date = (string)self::extract($needle, $haystack);
+        $date = (string) self::extract($needle, $haystack);
         if (! $date) {
             return null;
         }

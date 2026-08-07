@@ -7,23 +7,30 @@ namespace Appvise\KvkApi\Model\Company;
 class VestigingBasis
 {
     private $kvkNummer;
+
     private $vestigingsNummer;
+
     private $eersteHandelsnaam;
+
     private $indHoofdvestiging;
+
     private $indAdresAfgeschermd;
+
     private $indCommercieleVestiging;
+
     private $volledigAdres;
+
     private $links;
 
     public function __construct(
-        string $vestigingsNummer,
+        string  $vestigingsNummer,
         ?string $kvkNummer,
         ?string $eersteHandelsnaam,
         ?string $indHoofdvestiging,
         ?string $indAdresAfgeschermd,
         ?string $indCommercieleVestiging,
         ?string $volledigAdres,
-        ?array $links
+        ?array  $links
     ) {
         $this->vestigingsNummer = $vestigingsNummer;
         $this->kvkNummer = $kvkNummer;
@@ -78,5 +85,26 @@ class VestigingBasis
     public function getKvkNumber(): string
     {
         return $this->kvkNumber;
+    }
+
+    public function toArray(): array
+    {
+        $linksArray = [];
+        if ($this->links) {
+            foreach ($this->links as $link) {
+                $linksArray[] = $link->toArray();
+            }
+        }
+
+        return [
+            'kvkNummer' => $this->kvkNummer,
+            'vestigingsNummer' => $this->vestigingsNummer,
+            'eersteHandelsnaam' => $this->eersteHandelsnaam,
+            'indHoofdvestiging' => $this->indHoofdvestiging,
+            'indAdresAfgeschermd' => $this->indAdresAfgeschermd,
+            'indCommercieleVestiging' => $this->indCommercieleVestiging,
+            'volledigAdres' => $this->volledigAdres,
+            'links' => $linksArray,
+        ];
     }
 }

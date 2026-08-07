@@ -9,6 +9,8 @@ interface KvkClientInterface
 {
     public function search(QueryInterface $query);
 
+    public function searchV2(QueryInterface $query);
+
     public function getBasisProfiel(QueryInterface $query);
 
     public function getBasisProfielEigenaar(QueryInterface $query);

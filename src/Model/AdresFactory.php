@@ -13,7 +13,7 @@ class AdresFactory extends AbstractFactory
             self::pluckString('indAfgeschermd', $response),
             self::pluckString('volledigAdres', $response),
             self::pluckString('straatnaam', $response),
-            self::pluckInteger('huisnummer', $response),
+            self::pluckString('huisnummer', $response),
             self::pluckString('huisnummerToevoeging', $response),
             self::pluckString('huisletter', $response),
             self::pluckString('aanduidingBijHuisnummer', $response),

@@ -57,4 +57,16 @@ class Resultaat implements ResultaatInterface
     {
         return $this->vorige;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'pagina' => $this->pagina,
+            'totaal' => $this->totaal,
+            'aantal' => $this->aantal,
+            'resultaten' => $this->resultaten,
+            'volgende' => $this->volgende,
+            'vorige' => $this->vorige,
+        ];
+    }
 }

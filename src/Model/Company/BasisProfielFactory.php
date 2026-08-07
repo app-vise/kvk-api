@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Appvise\KvkApi\Model\Company;
 
-use Appvise\KvkApi\Model\AbstractFactory;
 use Appvise\KvkApi\Model\LinkFactory;
-use Appvise\KvkApi\Model\MaterieleRegistratieFactory;
+use Appvise\KvkApi\Model\AbstractFactory;
 use Appvise\KvkApi\Model\SbiActiviteitFactory;
+use Appvise\KvkApi\Model\MaterieleRegistratieFactory;
 
 class BasisProfielFactory extends AbstractFactory
 {
@@ -18,7 +18,7 @@ class BasisProfielFactory extends AbstractFactory
             self::pluckString('naam', $response),
             self::pluckString('indNonMailing', $response),
             self::pluckDate('formeleRegistratiedatum', $response),
-            MaterieleRegistratieFactory::fromResponse($response['materieleRegistratie']),
+            MaterieleRegistratieFactory::fromResponse($response['materieleRegistratie'] ?? []),
             self::pluckInteger('totaalWerkzamePersonen', $response),
             self::pluckString('statutaireNaam', $response),
             EmbeddedContainerFactory::fromResponse($response['_embedded']),

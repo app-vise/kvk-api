@@ -16,14 +16,16 @@ class ResultaatItemFactory extends AbstractFactory
             self::pluckString('rsin', $response),
             self::pluckString('vestigingsnummer', $response),
             self::pluckString('handelsnaam', $response),
+            self::pluckString('adresType', $response),
             self::pluckString('straatnaam', $response),
-            self::pluckString('plaats', $response),
             self::pluckString('postcode', $response),
-            self::pluckInteger('huisnummer', $response),
+            self::pluckString('plaats', $response),
+            self::pluckString('huisnummer', $response),
+            self::pluckString('huisnummerToevoeging', $response),
             self::pluckString('type', $response),
             self::pluckString('actief', $response),
             self::pluckString('vervallenNaam', $response),
-            self::extractLinks($response['links']),
+            self::extractLinks($response['links'] ?? []),
         );
     }
 
